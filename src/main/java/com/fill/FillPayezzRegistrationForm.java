@@ -85,6 +85,7 @@ public final class FillPayezzRegistrationForm {
         PdfStamper stamper = null;
         try {
             reader = new PdfReader(sourcePayEezzFile);
+            System.out.println("Reading from following file :-" + sourcePayEezzFile + " \n and excel file :- " + sourceExcelFile);
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
@@ -121,6 +122,7 @@ public final class FillPayezzRegistrationForm {
         }
         stamper.close();
         reader.close();
+        System.out.println("File saved at following location :- " + destinationFile);
     }
 
 }

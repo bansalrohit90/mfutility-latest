@@ -78,6 +78,7 @@ public final class FillKYCRegistrationForm {
         PdfReader reader = null;
         PdfStamper stamper = null;
         try {
+            System.out.println("Reading from following file :-" + sourcePayEezzFile + " \n and excel file :- " + sourceExcelFile);
             reader = new PdfReader(sourcePayEezzFile);
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
@@ -115,6 +116,7 @@ public final class FillKYCRegistrationForm {
         }
         stamper.close();
         reader.close();
+        System.out.println("File saved at following location :- " + destinationFile);
     }
 
 }

@@ -113,7 +113,7 @@ public final class FillKYC2RegistrationForm {
         EXPIRY_YEAR = util.getCellValue(27);
         APPLICATION_YEAR = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
         int month = Calendar.getInstance().get(Calendar.MONTH);
-        APPLICATION_MONTH = (month <= 9) ? "0" + String.valueOf(month + 1) : String.valueOf(month + 1);
+        APPLICATION_MONTH = (month < 9) ? "0" + String.valueOf(month + 1) : String.valueOf(month + 1);
         int date = Calendar.getInstance().get(Calendar.DATE);
         APPLICATION_DATE = (date <= 9) ? "0" + String.valueOf(date) : String.valueOf(date);
     }
@@ -127,6 +127,7 @@ public final class FillKYC2RegistrationForm {
         PdfReader reader = null;
         PdfStamper stamper = null;
         try {
+            System.out.println("Reading from following file :-" + sourcePayEezzFile + " \n and excel file :- " + sourceExcelFile);
             reader = new PdfReader(sourcePayEezzFile);
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
@@ -197,6 +198,7 @@ public final class FillKYC2RegistrationForm {
         }
         stamper.close();
         reader.close();
+        System.out.println("File saved at following location :- " + destinationFile);
     }
 
 }
