@@ -23,6 +23,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ import static com.fill.com.fill.util.Util.getAmountInWords;
 /**
  * Example to show filling form fields.
  */
-public final class FillPayezzRegistrationForm {
+public final class FillPayezzRegistrationFormNew {
 
     private static String CAN;
     private static String AMOUNT;
@@ -44,8 +45,11 @@ public final class FillPayezzRegistrationForm {
     private static String BANK_NAME;
     private static String EMAIL;
     private static String printFile;
+    private static String MONTH;
+    private static String DATE;
+    private static String YEAR;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\PayEezz-Mandate-Fillable.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\PayEezz-Mandate-Fillable.1.pdf";
     private static String destinationFile;
     private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
 
@@ -54,7 +58,7 @@ public final class FillPayezzRegistrationForm {
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "PAYEZZ" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "PAYEZZ_NEW" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile,NAME+"PAYEZZ_REG");
@@ -80,6 +84,11 @@ public final class FillPayezzRegistrationForm {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = sdf.format(date);
 
+        Calendar cal = Calendar.getInstance();
+        DATE = "" + cal.get(Calendar.DAY_OF_MONTH);
+        MONTH = "" + (cal.get(Calendar.MONTH) + 1);
+        YEAR = "" + cal.get(Calendar.YEAR);
+
 
         PdfReader reader = null;
         PdfStamper stamper = null;
@@ -88,27 +97,31 @@ public final class FillPayezzRegistrationForm {
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
-            form.setField("ARN_CODE", "ARN-10911");
-            form.setField("EUIN_CODE", "E036366");
+
+            form.setField("DD", DATE);
+            form.setField("MOBNO", MOBILE);
+            form.setField("SUB_DATE", strDate);
+            form.setField("ARNNO", "ARN-10911");
+            form.setField("AMOUNT_FIGURE", AMOUNT);
             form.setField("CANID", CAN);
-            form.setField("CANID1", CAN);
-            form.setField("PANID", PAN);
-            form.setField("NAME", NAME);
-            form.setField("BK_NAME1", NAME);
-            form.setField("PHONENO", MOBILE);
-            form.setField("EMAILID", EMAIL);
-            form.setField("BANKACNO", ACCOUNT_NUMBER);
-            form.setField("BANKACNO1", ACCOUNT_NUMBER);
-            form.setField("MICR", MICR);
+            form.setField("BANKAC", ACCOUNT_NUMBER);
+            form.setField("AC_TYPE1", "Yes");
             form.setField("IFSC", IFSC);
+            form.setField("MM1", MONTH);
+            form.setField("BK_NAME1", NAME);
+            form.setField("AMOUNT_WORDS", getAmountInWords(AMOUNT));
+            form.setField("PANID", PAN);
+            form.setField("MM", MONTH);
             form.setField("BANKNAME", BANK_NAME);
-            form.setField("AMT_FIG", AMOUNT);
-            form.setField("AMOUNT_WORD", getAmountInWords(AMOUNT));
-            form.setField("PRD_CHK", "Yes");
-            form.setField("FROM_DATE", strDate);
-            form.setField("DATE1", strDate);
-            form.setField("DATE", strDate);
-            form.setField("PLACE", "SRI GANGANAGAR");
+            form.setField("OPTION", "Yes");
+            form.setField("YYYY", YEAR);
+            form.setField("MICR", MICR);
+            form.setField("NAME", NAME);
+            form.setField("DD1", DATE);
+            form.setField("EUIN", "E036366");
+            form.setField("EMAILID", EMAIL);
+            form.setField("YYYY1", YEAR);
+            form.setField("SUB_PLACE", "SRI GANGANAGAR");
 
             stamper.setFormFlattening(true);
 

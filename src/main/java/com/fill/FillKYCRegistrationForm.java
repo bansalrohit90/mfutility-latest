@@ -82,6 +82,7 @@ public final class FillKYCRegistrationForm {
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
+            System.out.println(fields);
             form.setField("PAN", PAN);
             form.setField("Name same as ID proof", PREFIX);
             form.setField("First Name", FIRST_NAME);

@@ -23,6 +23,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -59,6 +60,9 @@ public final class FillKYC2RegistrationForm {
     private static String EXPIRY_DATE;
     private static String EXPIRY_MONTH;
     private static String EXPIRY_YEAR;
+    private static String APPLICATION_YEAR;
+    private static String APPLICATION_MONTH;
+    private static String APPLICATION_DATE;
     private static String printFile;
 
     private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\ckyc-application-form-individual.pdf";
@@ -107,6 +111,11 @@ public final class FillKYC2RegistrationForm {
         EXPIRY_DATE = util.getCellValue(25);
         EXPIRY_MONTH = util.getCellValue(26);
         EXPIRY_YEAR = util.getCellValue(27);
+        APPLICATION_YEAR = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        APPLICATION_MONTH = (month <= 9) ? "0" + String.valueOf(month + 1) : String.valueOf(month + 1);
+        int date = Calendar.getInstance().get(Calendar.DATE);
+        APPLICATION_DATE = (date <= 9) ? "0" + String.valueOf(date) : String.valueOf(date);
     }
 
     private static void editPdfDocument() throws Exception {
@@ -122,6 +131,7 @@ public final class FillKYC2RegistrationForm {
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
+            System.out.println(fields);
             form.setField("Father First Name", FATHER_FIRST_NAME);
             form.setField("Date", DOB_DATE);
             form.setField("Month", DOB_MONTH);
@@ -165,7 +175,16 @@ public final class FillKYC2RegistrationForm {
             form.setField("Middle Name", MIDDLE_NAME);
             form.setField("Last Name", SURNAME);
             form.setField("Father Last Name", FATHER_LAST_NAME);
-
+            form.setField("Place2", "GANGANAGAR ");
+            form.setField("Application Year", APPLICATION_YEAR);
+            form.setField("Application Month", APPLICATION_MONTH);
+            form.setField("Application Date", APPLICATION_DATE);
+            form.setField("Year5", APPLICATION_YEAR);
+            form.setField("Year6", APPLICATION_YEAR);
+            form.setField("Month5", APPLICATION_MONTH);
+            form.setField("Month6", APPLICATION_MONTH);
+            form.setField("Date6", APPLICATION_DATE);
+            form.setField("Date5", APPLICATION_DATE);
 
             stamper.setFormFlattening(true);
 

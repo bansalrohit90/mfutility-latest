@@ -130,7 +130,7 @@ public class Util {
     }
 
     public static String getDirectoryPath() {
-        return "fillable-forms";
+        return "C:\\Personal\\Mutual Fund Forms\\MFU Set";
     }
 
     public static String getDestinationDirectoryPath() {
