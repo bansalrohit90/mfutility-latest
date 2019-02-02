@@ -29,6 +29,8 @@ import java.util.List;
  */
 public class Util {
 
+    public static String CITY = "NEW DELHI";
+
     private Row row;
 
     public Util(Row row) {

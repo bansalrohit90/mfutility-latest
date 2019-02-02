@@ -27,6 +27,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
+
 /**
  * Example to show filling form fields.
  */
@@ -176,7 +178,7 @@ public final class FillKYC2RegistrationForm {
             form.setField("Middle Name", MIDDLE_NAME);
             form.setField("Last Name", SURNAME);
             form.setField("Father Last Name", FATHER_LAST_NAME);
-            form.setField("Place2", "GANGANAGAR ");
+            form.setField("Place2", CITY);
             form.setField("Application Year", APPLICATION_YEAR);
             form.setField("Application Month", APPLICATION_MONTH);
             form.setField("Application Date", APPLICATION_DATE);

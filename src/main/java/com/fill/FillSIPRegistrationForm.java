@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
 import static com.fill.com.fill.util.Util.getAmountInWords;
 
 /**
@@ -234,7 +235,7 @@ public final class FillSIPRegistrationForm {
             if (SIP5_AMC != "") form.setField("FREQ5_D", "Yes");
 
             form.setField("TXN_DATE", strDate);
-            form.setField("PLACE", "SRI GANGANAGAR");
+            form.setField("PLACE", CITY);
 
             stamper.setFormFlattening(true);
 

@@ -27,6 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
 import static com.fill.com.fill.util.Util.getAmountInWords;
 
 /**
@@ -121,7 +122,7 @@ public final class FillPayezzRegistrationFormNew {
             form.setField("EUIN", "E036366");
             form.setField("EMAILID", EMAIL);
             form.setField("YYYY1", YEAR);
-            form.setField("SUB_PLACE", "SRI GANGANAGAR");
+            form.setField("SUB_PLACE", CITY);
 
             stamper.setFormFlattening(true);
 

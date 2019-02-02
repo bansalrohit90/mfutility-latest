@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
+
 /**
  * Created by Rohit.Bansal on 15-04-2017.
  */
@@ -173,7 +175,7 @@ public class FillPurchaseTransactionForm {
             form.setField("INVST_AMT5_IN_WORDS", Util.getAmountInWords(LUMPSUM5_AMOUNT));
 
             form.setField("SUB_DATE", strDate);
-            form.setField("PLACE", "SRI GANGANAGAR");
+            form.setField("PLACE", CITY);
 
             stamper.setFormFlattening(true);
         } catch (Exception dex) {

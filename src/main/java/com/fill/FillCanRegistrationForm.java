@@ -27,6 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
+
 public final class FillCanRegistrationForm {
 
     private static String PAN;
@@ -145,7 +147,7 @@ public final class FillCanRegistrationForm {
             form.setField("NAME1_COB", "INDIA");
             form.setField("IND1", "Yes");
             form.setField("DATE_SUB", strDate);
-            form.setField("SUB_PLACE", "SRI GANGANAGAR");
+            form.setField("SUB_PLACE", CITY);
             stamper.setFormFlattening(true);
 
         } catch (Exception dex) {

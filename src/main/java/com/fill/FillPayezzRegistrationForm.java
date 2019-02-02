@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import static com.fill.com.fill.util.Util.CITY;
 import static com.fill.com.fill.util.Util.getAmountInWords;
 
 /**
@@ -109,7 +110,7 @@ public final class FillPayezzRegistrationForm {
             form.setField("FROM_DATE", strDate);
             form.setField("DATE1", strDate);
             form.setField("DATE", strDate);
-            form.setField("PLACE", "SRI GANGANAGAR");
+            form.setField("PLACE", CITY);
 
             stamper.setFormFlattening(true);
 
