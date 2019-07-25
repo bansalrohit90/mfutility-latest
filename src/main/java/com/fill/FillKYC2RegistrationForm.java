@@ -160,6 +160,7 @@ public final class FillKYC2RegistrationForm {
                 form.setField("DLE Month1", EXPIRY_MONTH);
                 form.setField("DLE Year1", EXPIRY_YEAR);
             } else if (PROOF_TYPE.equals("AADHAR")) {
+                PROOF_VALUE = Util.maskString(PROOF_VALUE,0,8,'*');
                 form.setField("Aadhaar Card1", PROOF_VALUE);
             }
 

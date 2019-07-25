@@ -76,6 +76,7 @@ public final class FillCanRegistrationForm {
         NAME = util.getCellValue(1);
         DOB = util.getDateCellValue(2);
         AADHAR = util.getCellValue(3);
+        AADHAR = Util.maskString(AADHAR,0,8,'*');
         MOBILE = util.getCellValue(4);
         EMAIL = util.getCellValue(5);
         ACC1_NUMBER = util.getCellValue(6);
