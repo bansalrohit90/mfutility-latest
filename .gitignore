@@ -1,0 +1,5 @@
+/target/**
+/.idea/**
+/mfutility.iml
+/src/main/resources/test
+/mfutility.rar
