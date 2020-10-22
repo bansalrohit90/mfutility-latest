@@ -54,16 +54,16 @@ public final class FillCanRegistrationForm {
     private static String PLACE_OF_BIRTH;
     private static String printFile;
 
-    private static final String sourceCanEezzFile = Util.getDirectoryPath() + "\\CANEezz-Fillable.pdf";
+    private static final String sourceCanEezzFile = Util.getDirectoryPath() + "/CANEezz-Fillable.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
     public static void main(String[] args) throws Exception {
         Util util = Util.getUtilObject(sourceExcelFile, 0);
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "CAN_REGISTRATION" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + NAME + "_" + PAN + "_" + "CAN_REGISTRATION" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile,NAME+"CAN_REG");

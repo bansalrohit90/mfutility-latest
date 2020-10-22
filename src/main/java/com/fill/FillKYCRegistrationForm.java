@@ -32,9 +32,9 @@ public final class FillKYCRegistrationForm {
     private static String MOBILE;
     private static String printFile;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\CKYC-Individual-Fillable.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/CKYC-Individual-Fillable.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration.xlsm";
 
     public static void main(String[] args) throws Exception {
 
@@ -42,7 +42,7 @@ public final class FillKYCRegistrationForm {
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + FIRST_NAME + "_" + PAN + "_" + "KYC_Old" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + FIRST_NAME + "_" + PAN + "_" + "KYC_Old" + ".pdf";
         editPdfDocument();
 
     }

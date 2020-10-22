@@ -67,9 +67,9 @@ public final class FillKYC2RegistrationForm {
     private static String APPLICATION_DATE;
     private static String printFile;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\ckyc-application-form-individual.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/ckyc-application-form-individual.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
     public static void main(String[] args) throws Exception {
 
@@ -77,7 +77,7 @@ public final class FillKYC2RegistrationForm {
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + FIRST_NAME + "_" + PAN + "_" + "KYC" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + FIRST_NAME + "_" + PAN + "_" + "KYC" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile, FIRST_NAME + "KYC_REG");
@@ -160,7 +160,7 @@ public final class FillKYC2RegistrationForm {
                 form.setField("DLE Month1", EXPIRY_MONTH);
                 form.setField("DLE Year1", EXPIRY_YEAR);
             } else if (PROOF_TYPE.equals("AADHAR")) {
-                PROOF_VALUE = Util.maskString(PROOF_VALUE,0,8,'*');
+                PROOF_VALUE = Util.maskString(PROOF_VALUE, 0, 8, '*');
                 form.setField("Aadhaar Card1", PROOF_VALUE);
             }
 

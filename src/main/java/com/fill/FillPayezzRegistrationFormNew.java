@@ -50,16 +50,16 @@ public final class FillPayezzRegistrationFormNew {
     private static String DATE;
     private static String YEAR;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\PayEezz-Mandate-Fillable.1.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/PayEezz-Mandate-Fillable.1.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
     public static void main(String[] args) throws Exception {
         Util util = Util.getUtilObject(sourceExcelFile, 1);
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "PAYEZZ_NEW" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + NAME + "_" + PAN + "_" + "PAYEZZ_NEW" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile,NAME+"PAYEZZ_REG");

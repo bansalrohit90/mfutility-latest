@@ -53,9 +53,9 @@ public class FillPurchaseTransactionForm {
     private static String LUMPSUM5_AMOUNT;
     private static String printFile;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\CTF-Purchase-Fillable.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/TF-Purchase-Fillable.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
     public static void main(String[] args) throws Exception {
 
@@ -63,7 +63,7 @@ public class FillPurchaseTransactionForm {
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "PurchaseTransaction" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + NAME + "_" + PAN + "_" + "PurchaseTransaction" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile, NAME + "LUMPSUM_REG");

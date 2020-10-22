@@ -87,9 +87,9 @@ public final class FillSIPRegistrationForm {
 
 
     //Fillable1 - checked growth & monthly; Fillable - unchecked growth & monthly
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "\\CTF-SIP-Fillable1.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/CTF-SIP-Fillable1.pdf";
     private static String destinationFile;
-    private static final String sourceExcelFile = Util.getDirectoryPath() + "\\fill-can-registration.xlsm";
+    private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
     public static void main(String[] args) throws Exception {
 
@@ -97,7 +97,7 @@ public final class FillSIPRegistrationForm {
         if (util == null)
             return;
         fillFromExcel(util);
-        destinationFile = Util.getDestinationDirectoryPath() + "\\" + NAME + "_" + PAN + "_" + "SIP" + ".pdf";
+        destinationFile = Util.getDestinationDirectoryPath() + "/" + NAME + "_" + PAN + "_" + "SIP" + ".pdf";
         editPdfDocument();
         /*if (printFile.equalsIgnoreCase("yes")) {
 //            Util.printPdfOutput2(destinationFile,NAME+"SIP_REG");

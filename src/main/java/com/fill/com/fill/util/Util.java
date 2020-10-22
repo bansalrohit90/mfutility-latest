@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class Util {
 
-    public static String CITY = "NEW DELHI";
+    public static String CITY = "Sri Ganganagar";
 
     private Row row;
 
@@ -59,7 +59,22 @@ public class Util {
         return util;
     }
 
+    public static Iterator<Row> getUtilIteratorObject(String sourceExcelFile, int sheetIndex) throws IOException {
+        FileInputStream file = new FileInputStream(new File(sourceExcelFile));
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+        XSSFSheet sheet = workbook.getSheetAt(sheetIndex);
+        Iterator<Row> iterator = sheet.iterator();
+        Row headingRow = iterator.next();
+        return iterator;
+    }
+
     public String getCellValue(int cellNumber) {
+        Cell cell = row.getCell(cellNumber, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+        cell.setCellType(CellType.STRING);
+        return (cell.getStringCellValue() != null) ? cell.getStringCellValue().toUpperCase() : "";
+    }
+
+    public static String getCellValue(Row row, int cellNumber) {
         Cell cell = row.getCell(cellNumber, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
         cell.setCellType(CellType.STRING);
         return (cell.getStringCellValue() != null) ? cell.getStringCellValue().toUpperCase() : "";
@@ -132,12 +147,17 @@ public class Util {
     }
 
     public static String getDirectoryPath() {
-        return "C:\\Personal\\Mutual Fund Forms\\MFU Set";
+        if (System.getProperty("os.name").toLowerCase().contains("mac"))
+            return "/Users/rohibans/personal/Mutual Fund Forms/MFU Set";
+        else
+            return "C:\\Personal\\Mutual Fund Forms\\MFU Set";
     }
 
     public static String getDestinationDirectoryPath() {
-        //return getDirectoryPath();
-        return "C:\\Personal\\Mutual Fund Forms\\MFU Set\\Filled Forms";
+        if (System.getProperty("os.name").toLowerCase().contains("mac"))
+            return "/Users/rohibans/personal/Mutual Fund Forms/MFU Set/Filled Forms";
+        else
+            return "C:\\Personal\\Mutual Fund Forms\\MFU Set\\Filled Forms";
     }
 
     public static String getTotalAmount(List<String> amounts) {
@@ -163,28 +183,28 @@ public class Util {
     }
 
     public static String maskString(String strText, int start, int end, char maskChar)
-            throws Exception{
+            throws Exception {
 
-        if(strText == null || strText.equals(""))
+        if (strText == null || strText.equals(""))
             return "";
 
-        if(start < 0)
+        if (start < 0)
             start = 0;
 
-        if( end > strText.length() )
+        if (end > strText.length())
             end = strText.length();
 
-        if(start > end)
+        if (start > end)
             throw new Exception("End index cannot be greater than start index");
 
         int maskLength = end - start;
 
-        if(maskLength == 0)
+        if (maskLength == 0)
             return strText;
 
         StringBuilder sbMaskString = new StringBuilder(maskLength);
 
-        for(int i = 0; i < maskLength; i++){
+        for (int i = 0; i < maskLength; i++) {
             sbMaskString.append(maskChar);
         }
 
