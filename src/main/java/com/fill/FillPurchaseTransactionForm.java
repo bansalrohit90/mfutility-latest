@@ -53,7 +53,7 @@ public class FillPurchaseTransactionForm {
     private static String LUMPSUM5_AMOUNT;
     private static String printFile;
 
-    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/TF-Purchase-Fillable.pdf";
+    private static final String sourcePayEezzFile = Util.getDirectoryPath() + "/CTF-Purchase-Fillable.pdf";
     private static String destinationFile;
     private static final String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
 
