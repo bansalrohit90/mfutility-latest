@@ -1,7 +1,5 @@
 package com.fill.com.fill.util;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPageable;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -12,10 +10,6 @@ import javax.print.*;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Sides;
-import java.awt.print.PageFormat;
-import java.awt.print.Paper;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -122,28 +116,6 @@ public class Util {
         DocPrintJob printJob = myService.createPrintJob();
         printJob.print(pdfDoc, new HashPrintRequestAttributeSet());
         fis.close();
-    }
-
-    static public void printPdfOutput2(String fileName, String jobName) throws PrinterException, IOException {
-        PrinterJob job = PrinterJob.getPrinterJob();
-        PageFormat pf = job.defaultPage();
-        Paper paper = new Paper();
-        paper.setSize(595, 842.0);
-        double margin = 10;
-        paper.setImageableArea(margin, margin, paper.getWidth() - margin, paper.getHeight() - margin);
-        pf.setPaper(paper);
-        pf.setOrientation(PageFormat.LANDSCAPE);
-
-        // PDFBox
-        PDDocument document = PDDocument.load(fileName);
-        job.setPageable(new PDPageable(document, job));
-
-        job.setJobName(jobName);
-        try {
-            job.print();
-        } catch (PrinterException e) {
-            System.out.println(e);
-        }
     }
 
     public static String getDirectoryPath() {
