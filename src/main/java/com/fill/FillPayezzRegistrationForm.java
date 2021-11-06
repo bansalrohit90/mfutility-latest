@@ -90,8 +90,8 @@ public final class FillPayezzRegistrationForm {
             stamper = new PdfStamper(reader, new FileOutputStream(destinationFile));
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
-            form.setField("ARN_CODE", "ARN-10911");
-            form.setField("EUIN_CODE", "E036366");
+            form.setField("ARN_CODE", "ARN-" + Util.getARNEuin()[0]);
+            form.setField("EUIN_CODE", Util.getARNEuin()[1]);
             form.setField("CANID", CAN);
             form.setField("CANID1", CAN);
             form.setField("PANID", PAN);

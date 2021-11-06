@@ -124,9 +124,9 @@ public class FillPurchaseTransactionForm {
             form.setField("CANNO", CAN);
             form.setField("PAN_PEKRN", PAN);
             form.setField("NAME", NAME);
-            form.setField("ARNNO", "10911");
+            form.setField("ARNNO", Util.getARNEuin()[0]);
             form.setField("ARNNAME", "SANTOSH BANSAL");
-            form.setField("EUIN", "E036366");
+            form.setField("EUIN", Util.getARNEuin()[1]);
             form.setField("PAY_MODE1", "Yes");
             form.setField("PAY_MODE12", "Yes");
             form.setField("PAY_REF_NO", CHQ_NO);

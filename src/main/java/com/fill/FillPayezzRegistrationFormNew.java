@@ -102,7 +102,7 @@ public final class FillPayezzRegistrationFormNew {
             form.setField("DD", DATE);
             form.setField("MOBNO", MOBILE);
             form.setField("SUB_DATE", strDate);
-            form.setField("ARNNO", "ARN-10911");
+            form.setField("ARNNO", "ARN-" + Util.getARNEuin()[0]);
             form.setField("AMOUNT_FIGURE", AMOUNT);
             form.setField("CANID", CAN);
             form.setField("BANKAC", ACCOUNT_NUMBER);
@@ -119,7 +119,7 @@ public final class FillPayezzRegistrationFormNew {
             form.setField("MICR", MICR);
             form.setField("NAME", NAME);
             form.setField("DD1", DATE);
-            form.setField("EUIN", "E036366");
+            form.setField("EUIN", Util.getARNEuin()[1]);
             form.setField("EMAILID", EMAIL);
             form.setField("YYYY1", YEAR);
             form.setField("SUB_PLACE", CITY);

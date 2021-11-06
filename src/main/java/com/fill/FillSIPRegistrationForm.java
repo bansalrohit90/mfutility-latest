@@ -172,9 +172,9 @@ public final class FillSIPRegistrationForm {
             form.setField("CANNO", CAN);
             form.setField("PAN_PEKRN", PAN);
             form.setField("NAME", NAME);
-            form.setField("ARN", "10911");
+            form.setField("ARN", Util.getARNEuin()[0]);
             form.setField("ARN NAME", "SANTOSH BANSAL");
-            form.setField("EUIN", "E036366");
+            form.setField("EUIN", Util.getARNEuin()[1]);
             form.setField("PAY_REFNO", CHQ_NO);
             form.setField("PAY_DD", CHQ_DT);
             form.setField("PAY_MM", CHQ_MONTH);

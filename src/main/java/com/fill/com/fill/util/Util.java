@@ -132,6 +132,13 @@ public class Util {
             return "C:\\Personal\\Mutual Fund Forms\\MFU Set\\Filled Forms";
     }
 
+    public static String[] getARNEuin() throws IOException {
+        String sourceExcelFile = Util.getDirectoryPath() + "/fill-can-registration1.xlsm";
+        Util util = Util.getUtilObject(sourceExcelFile, 0);
+        String arnEuin = util.getCellValue(21);
+        return arnEuin.split("-");
+    }
+
     public static String getTotalAmount(List<String> amounts) {
         Long totalAmount = 0l;
         for (String s : amounts) {

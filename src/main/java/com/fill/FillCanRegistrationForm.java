@@ -76,7 +76,7 @@ public final class FillCanRegistrationForm {
         NAME = util.getCellValue(1);
         DOB = util.getDateCellValue(2);
         AADHAR = util.getCellValue(3);
-        AADHAR = Util.maskString(AADHAR,0,8,'*');
+        AADHAR = Util.maskString(AADHAR, 0, 8, '*');
         MOBILE = util.getCellValue(4);
         EMAIL = util.getCellValue(5);
         ACC1_NUMBER = util.getCellValue(6);
@@ -94,7 +94,7 @@ public final class FillCanRegistrationForm {
         NOMINEE = util.getCellValue(18);
         NOMINEE_RELATION = util.getCellValue(19);
         PLACE_OF_BIRTH = util.getCellValue(20);
-        printFile = util.getCellValue(21);
+//        printFile = util.getCellValue(21);
     }
 
     private static void editPdfDocument() throws Exception {
@@ -113,8 +113,8 @@ public final class FillCanRegistrationForm {
             AcroFields form = stamper.getAcroFields();
             Map<String, AcroFields.Item> fields = form.getFields();
             System.out.println(fields);
-            form.setField("ARN", "ARN-10911");
-            form.setField("EUIN", "E036366");
+            form.setField("ARN", "ARN-" + Util.getARNEuin()[0]);
+            form.setField("EUIN", Util.getARNEuin()[1]);
             form.setField("MOH1", "Yes");
             form.setField("CATG1", "Yes");
             form.setField("RI_ST1", "Yes");
